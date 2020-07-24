@@ -5,3 +5,5 @@ var PostMessage = mongoose.model("PostMessage", {
   title: String,
   message: String,
 });
+
+module.exports = { PostMessage };

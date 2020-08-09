@@ -25,11 +25,20 @@ const PostMessages = () => {
         <>
             <div className="data-list">
                 {
+
                     messages.map((message, index) => (
-                        <h1>{message.title}</h1>
+                        <div>
+                            <Card body>
+                                <CardTitle>{message.title}</CardTitle>
+                                <CardText>{message.message}</CardText>
+                                <Button>Go somewhere</Button>
+                            </Card>
+                            <br></br>
+                        </div>
                     ))
                 }
             </div>
+            <br></br>
 
         </>
 

@@ -35,8 +35,6 @@ const PostMessages = () => {
                                     <Button >Edit</Button>&nbsp;&nbsp;
                                     <Button className='btn-danger'>Delete</Button>
                                 </div>
-
-
                             </Card>
                             <br></br>
                         </div>
@@ -44,7 +42,6 @@ const PostMessages = () => {
                 }
             </div>
             <br></br>
-
         </>
 
     )

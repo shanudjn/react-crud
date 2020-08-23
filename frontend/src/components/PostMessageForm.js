@@ -30,12 +30,17 @@ class PostMessagesForm extends React.Component {
             message: this.state.message
         }
         await axios.post('http://localhost:8000/postmessages/', tempData);
+        this.setState({
+            title: '',
+            message: ''
+        })
+
 
     }
     render() {
         return (
             <>
-                <h5>Form</h5>
+                <h2>Form</h2>
                 <div className='form' onSubmit={this.handleSubmit}>
                     <Form>
                         <FormGroup>

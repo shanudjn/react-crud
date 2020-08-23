@@ -31,7 +31,12 @@ const PostMessages = () => {
                             <Card id={message.id} body >
                                 <CardTitle>{message.title}</CardTitle>
                                 <CardText>{message.message}</CardText>
-                                <Button>Go somewhere</Button>
+                                <div className='btn-group'>
+                                    <Button >Edit</Button>&nbsp;&nbsp;
+                                    <Button className='btn-danger'>Delete</Button>
+                                </div>
+
+
                             </Card>
                             <br></br>
                         </div>

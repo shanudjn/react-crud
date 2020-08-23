@@ -24,7 +24,7 @@ class PostMessagesForm extends React.Component {
     }
 
     async handleSubmit(e) {
-        e.preventDefault();
+        //e.preventDefault();
         let tempData = {
             title: this.state.title,
             message: this.state.message

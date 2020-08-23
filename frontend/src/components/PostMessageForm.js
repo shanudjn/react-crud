@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from "axios";
 
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 class PostMessagesForm extends React.Component {
@@ -11,13 +12,24 @@ class PostMessagesForm extends React.Component {
             message: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
-    handleSubmit(e) {
+    handleChange(event) {
+        let target = event.target;
+        let value = target.value;
+        let name = target.name;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    async handleSubmit(e) {
         e.preventDefault();
         let tempData = {
-            topic: this.state.title,
+            title: this.state.title,
             message: this.state.message
         }
+        await axios.post('http://localhost:8000/postmessages/', tempData);
 
     }
     render() {
@@ -27,10 +39,10 @@ class PostMessagesForm extends React.Component {
                 <div className='form' onSubmit={this.handleSubmit}>
                     <Form>
                         <FormGroup>
-                            <Input type="text" name="title" id="title" placeholder="Title" value={this.state.title} />
+                            <Input type="text" name="title" id="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
                         </FormGroup>
                         <FormGroup>
-                            <Input type="textarea" name="text" id="exampleText" placeholder="Message" value={this.state.message} />
+                            <Input type="textarea" name="message" id="exampleText" placeholder="Message" value={this.state.message} onChange={this.handleChange} />
                         </FormGroup>
                         <Button>Submit</Button>
                     </Form>

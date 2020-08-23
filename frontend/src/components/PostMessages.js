@@ -27,8 +27,8 @@ const PostMessages = () => {
                 {
 
                     messages.map((message, index) => (
-                        <div>
-                            <Card body>
+                        <div key={index}>
+                            <Card id={message.id} body >
                                 <CardTitle>{message.title}</CardTitle>
                                 <CardText>{message.message}</CardText>
                                 <Button>Go somewhere</Button>

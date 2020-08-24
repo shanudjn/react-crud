@@ -4,6 +4,7 @@ import axios from "axios";
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 
+
 class PostMessagesForm extends React.Component {
     constructor(props) {
         super(props);
@@ -13,6 +14,7 @@ class PostMessagesForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+
     }
     handleChange(event) {
         let target = event.target;
@@ -22,6 +24,7 @@ class PostMessagesForm extends React.Component {
             [name]: value
         })
     }
+
 
     async handleSubmit(e) {
         //e.preventDefault();
@@ -34,8 +37,6 @@ class PostMessagesForm extends React.Component {
             title: '',
             message: ''
         })
-
-
     }
     render() {
         return (

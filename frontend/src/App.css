@@ -16,8 +16,8 @@ h2{
     width: 50%;
     margin: auto;    
 }
-.btn-group{    
+.btn-group .btn{    
     height: 50px;
-    width: auto;
+    width: 100px;
     /* margin-right: auto; */
 }

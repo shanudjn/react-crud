@@ -3,6 +3,7 @@ import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
 
 import axios from "axios";
+import EditModal from './EditModal';
 
 
 
@@ -13,14 +14,16 @@ const PostMessages = () => {
         loadMessages();
     }, []);
 
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
     const loadMessages = async () => {
         const result = await axios.get("http://localhost:8000/postmessages/");
 
         //console.log(result);
         setMessages(result.data);
     }
-
-
     return (
         <>
             <div className="data-list">
@@ -32,7 +35,7 @@ const PostMessages = () => {
                                 <CardTitle>{message.title}</CardTitle>
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
-                                    <Button >Edit</Button>&nbsp;&nbsp;
+                                    <EditModal buttonLabel="Edit" className='btn-danger' />&nbsp;&nbsp;
                                     <Button className='btn-danger'>Delete</Button>
                                 </div>
                             </Card>

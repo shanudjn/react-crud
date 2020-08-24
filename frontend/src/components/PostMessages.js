@@ -14,10 +14,6 @@ const PostMessages = () => {
         loadMessages();
     }, []);
 
-    const [modal, setModal] = useState(false);
-
-    const toggle = () => setModal(!modal);
-
     const loadMessages = async () => {
         const result = await axios.get("http://localhost:8000/postmessages/");
 
@@ -36,7 +32,8 @@ const PostMessages = () => {
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
                                     <EditModal buttonLabel="Edit" className='btn-danger' />&nbsp;&nbsp;
-                                    <Button className='btn-danger'>Delete</Button>
+                                    <Button className='btn btn-danger'>Delete</Button>
+
                                 </div>
                             </Card>
                             <br></br>

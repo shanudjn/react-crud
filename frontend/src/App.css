@@ -18,5 +18,8 @@ h2{
 }
 .btn-group{
    width: 100px;
-   border-radius: 10px;    
+    
+}
+.btn-danger{
+    color: black;
 }

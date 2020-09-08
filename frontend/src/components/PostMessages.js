@@ -31,9 +31,8 @@ const PostMessages = () => {
                                 <CardTitle>{message.title}</CardTitle>
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
-                                    <EditModal buttonLabel="Edit" className='btn-danger' />&nbsp;&nbsp;
-                                    <Button className='btn btn-danger'>Delete</Button>
-
+                                    <EditModal />&nbsp;&nbsp;
+                                    <Button>Delete</Button>
                                 </div>
                             </Card>
                             <br></br>

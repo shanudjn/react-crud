@@ -11,7 +11,7 @@ const EditModal = () => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch static backdrop modal
+                Edit
             </Button>
 
             <Modal
@@ -26,7 +26,7 @@ const EditModal = () => {
                 <Modal.Body>
                     I will not close if you click outside me. Don't even try to press
                     escape key.
-                    
+                    Ujda hua sa woh chaman chup chaap dekhta hooonn
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

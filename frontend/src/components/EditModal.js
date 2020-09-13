@@ -24,11 +24,10 @@ const EditModal = (props) => {
                     <Modal.Title>Edit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
                     <h3>{props.title}</h3>
                     <Form>
                         <div class="input-group">
-                            <textarea class="form-control" aria-label="With textarea">{props.message}</textarea>
+                            <textarea class="form-control" aria-label="With textarea" rows={10}>{props.message}</textarea>
                         </div>
                     </Form>
                 </Modal.Body>

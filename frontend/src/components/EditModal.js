@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Form, } from 'react-bootstrap';
 
-const EditModal = () => {
+const EditModal = (props) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -21,17 +21,21 @@ const EditModal = () => {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title>Edit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    I will not close if you click outside me. Don't even try to press
-                    escape key.
-                    Ujda hua sa woh chaman chup chaap dekhta hooonn
+
+                    <h3>{props.title}</h3>
+                    <Form>
+                        <div class="input-group">
+                            <textarea class="form-control" aria-label="With textarea">{props.message}</textarea>
+                        </div>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-            </Button>
+                    </Button>
                     <Button variant="primary">Understood</Button>
                 </Modal.Footer>
             </Modal>

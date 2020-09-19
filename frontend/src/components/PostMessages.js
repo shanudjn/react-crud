@@ -20,9 +20,26 @@ const PostMessages = () => {
         //console.log(result);
         setMessages(result.data);
     }
-    const onSave = (postId) => {
-        axios.put("http://localhost:8000/postmessages/");
+    const setUpdate = (text, key) => {
+        const items = messages;
+        console.log(items)
+        items.forEach(element => {
+            let mess = "";
+            if (element._id == key) {
+                console.log(element._id + " " + key)
+                mess = element.message;
+                mess += text;
+
+            }
+            console.log(mess);
+        });
+
+
+
+
+
     }
+
 
     return (
         <>
@@ -38,7 +55,7 @@ const PostMessages = () => {
 
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
-                                    <EditModal title={message.title} message={message.message} postId={message._id} onMessageChange={this.onSave} />&nbsp;&nbsp;
+                                    <EditModal title={message.title} message={message.message} postId={message._id} setUpdate={setUpdate} />&nbsp;&nbsp;
                                     <Button>Delete</Button>
                                 </div>
                             </Card>

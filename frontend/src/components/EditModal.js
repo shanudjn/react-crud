@@ -10,14 +10,7 @@ const EditModal = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleChange = (event) => {
-        let target = event.target;
-        let value = target.value;
-        let name = target.name;
-        name = value;
-        console.log(name);
 
-    }
 
 
 
@@ -41,7 +34,9 @@ const EditModal = (props) => {
                     <h4>{props.postId}</h4>
                     <Form>
                         <div className="input-group">
-                            <textarea className="form-control" aria-label="With textarea" rows={10} defaultValue={props.message} onChange={handleChange} name="editMessage"></textarea>
+                            <textarea id={props.postId} className="form-control" aria-label="With textarea" rows={10} defaultValue={props.message} onChange={(e) => {
+                                props.setUpdate(e.target.value, props.postId)
+                            }}></textarea>
                             {/* <p>{props.postId}</p> */}
                         </div>
                     </Form>

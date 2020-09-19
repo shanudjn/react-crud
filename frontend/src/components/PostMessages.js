@@ -20,6 +20,10 @@ const PostMessages = () => {
         //console.log(result);
         setMessages(result.data);
     }
+    const onSave = (postId) => {
+        axios.put("http://localhost:8000/postmessages/");
+    }
+
     return (
         <>
             <div className="data-list">
@@ -27,11 +31,14 @@ const PostMessages = () => {
 
                     messages.map((message, index) => (
                         <div key={index}>
-                            <Card id={message.id} body >
+                            <Card id={message._id} body >
                                 <CardTitle>{message.title}</CardTitle>
+                                <CardTitle>{message._id}</CardTitle>
+
+
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
-                                    <EditModal title={message.title} message={message.message} />&nbsp;&nbsp;
+                                    <EditModal title={message.title} message={message.message} postId={message._id} onMessageChange={this.onSave} />&nbsp;&nbsp;
                                     <Button>Delete</Button>
                                 </div>
                             </Card>

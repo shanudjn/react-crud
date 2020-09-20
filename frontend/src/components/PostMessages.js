@@ -22,19 +22,21 @@ const PostMessages = () => {
     }
     const setUpdate = (text, key) => {
         const items = messages;
+
         console.log(items)
-        items.forEach(element => {
-            let mess = "";
-            if (element._id == key) {
-                console.log(element._id + " " + key)
-                mess = element.message;
-                mess += text;
-
-            }
-            console.log(mess);
-        });
+        //console.log(key);
+        console.log(text);
 
 
+        // items.forEach(element => {
+        //     if (element._id === key) {
+        //         element.message = text;
+
+        //         //console.log(additionalMessage);
+        //         console.log(element.message);
+        //     }
+
+        // });
 
 
 
@@ -56,6 +58,7 @@ const PostMessages = () => {
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
                                     <EditModal title={message.title} message={message.message} postId={message._id} setUpdate={setUpdate} />&nbsp;&nbsp;
+                                    {/* */}
                                     <Button>Delete</Button>
                                 </div>
                             </Card>

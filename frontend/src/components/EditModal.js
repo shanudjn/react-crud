@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
-import { Button, Modal, Form, } from 'react-bootstrap';
-import axios from "axios";
+import React, { useState } from 'react';
+import { Button, Modal, Form } from 'react-bootstrap';
+
 
 const EditModal = (props) => {
 
@@ -9,6 +9,10 @@ const EditModal = (props) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    let propsMessage = props.message;
+
+
 
 
 
@@ -34,9 +38,10 @@ const EditModal = (props) => {
                     <h4>{props.postId}</h4>
                     <Form>
                         <div className="input-group">
-                            <textarea id={props.postId} className="form-control" aria-label="With textarea" rows={10} defaultValue={props.message} onChange={(e) => {
-                                props.setUpdate(e.target.value, props.postId)
-                            }}></textarea>
+                            <textarea id={props.postId} className="form-control" aria-label="With textarea" rows={10} defaultValue={propsMessage} onChange={(e) => {
+                                props.setUpdate(e.target.value, props._id)
+                            }} ></textarea>
+                            {/*  */}
                             {/* <p>{props.postId}</p> */}
                         </div>
                     </Form>
@@ -45,7 +50,16 @@ const EditModal = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={props.onMessageChange}>Save</Button>
+                    <Button variant="primary" onClick={(e) => { console.log(propsMessage) }}>Save</Button>
+                    {/* <Button variant="primary" type="submit" onClick={(e) => {
+                        props.setUpdate(e.target.value, props.postId)
+                    }}>Save</Button> */}
+
+                    {/* <Button variant="primary" type="submit">Save</Button> */}
+                    {/* <Button onSubmit>Save</Button> */}
+
+
+
                 </Modal.Footer>
             </Modal>
         </>

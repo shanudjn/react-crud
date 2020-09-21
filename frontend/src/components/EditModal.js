@@ -6,13 +6,23 @@ import { Button, Modal, Form } from 'react-bootstrap';
 const EditModal = (props) => {
 
     const [show, setShow] = useState(false);
+    const [postId, setPostId] = useState(props.postId);
+    const [title, setTitle] = useState(props.title);
+    const [message, setMessage] = useState(props.message);
+
+
+
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    let propsMessage = props.message;
+    const setUpdate = (e) => {
+        console.log(message);
+        console.log(props.message);
 
-
+        setMessage(e.target.value);
+    }
 
 
 
@@ -34,14 +44,14 @@ const EditModal = (props) => {
                     <Modal.Title>Edit</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h3>{props.title}</h3>
-                    <h4>{props.postId}</h4>
+                    <h3>{title}</h3>
+                    <h4>{postId}</h4>
                     <Form>
                         <div className="input-group">
-                            <textarea id={props.postId} className="form-control" aria-label="With textarea" rows={10} defaultValue={propsMessage} onChange={(e) => {
-                                props.setUpdate(e.target.value, props._id)
-                            }} ></textarea>
-                            {/*  */}
+                            <textarea id={postId} className="form-control" aria-label="With textarea" rows={10} value={message} onChange={setUpdate} ></textarea>
+                            {/*onChange={(e) => {
+                                setUpdate(e.target.value, props._id)
+                            }}  */}
                             {/* <p>{props.postId}</p> */}
                         </div>
                     </Form>
@@ -50,7 +60,9 @@ const EditModal = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={(e) => { console.log(propsMessage) }}>Save</Button>
+                    <Button variant="primary" onClick={(e) => {
+                        props.handleSave(message, postId);
+                    }}>Save</Button>
                     {/* <Button variant="primary" type="submit" onClick={(e) => {
                         props.setUpdate(e.target.value, props.postId)
                     }}>Save</Button> */}

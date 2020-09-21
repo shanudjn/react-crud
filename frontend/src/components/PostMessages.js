@@ -20,25 +20,39 @@ const PostMessages = () => {
         //console.log(result);
         setMessages(result.data);
     }
-    const setUpdate = (text, key) => {
-        const items = messages;
+    // const setUpdate = (text, key) => {
+    //     const items = messages;
 
-        console.log(items)
-        //console.log(key);
-        console.log(text);
-
-
-        // items.forEach(element => {
-        //     if (element._id === key) {
-        //         element.message = text;
-
-        //         //console.log(additionalMessage);
-        //         console.log(element.message);
-        //     }
-
-        // });
+    //     console.log(items)
+    //     //console.log(key);
+    //     console.log(text);
 
 
+    //     // items.forEach(element => {
+    //     //     if (element._id == key) {
+    //     //         element.message = text;
+
+    //     //         //console.log(additionalMessage);
+    //     //         console.log(element.message);
+    //     //     }
+
+    //     // });
+    //     items.map((item) => {
+    //         if (item._id == key) {
+    //             item.message = text;
+    //             console.log(item.message)
+
+    //         }
+    //     })
+
+
+
+    // }
+    const handleSave = (postId, message) => {
+        let items = messages;
+        console.log(items);
+        console.log(postId);
+        console.log(message);
 
     }
 
@@ -57,8 +71,8 @@ const PostMessages = () => {
 
                                 <CardText>{message.message}</CardText>
                                 <div className='btn-group'>
-                                    <EditModal title={message.title} message={message.message} postId={message._id} setUpdate={setUpdate} />&nbsp;&nbsp;
-                                    {/* */}
+                                    <EditModal title={message.title} message={message.message} postId={message._id} handleSave={handleSave} />&nbsp;&nbsp;
+                                    {/*setUpdate={setUpdate} */}
                                     <Button>Delete</Button>
                                 </div>
                             </Card>

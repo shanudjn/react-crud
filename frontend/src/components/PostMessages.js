@@ -54,6 +54,12 @@ const PostMessages = () => {
         console.log(postId);
         console.log(message);
 
+        items.map((item) => {
+            if (item._id == postId) {
+                item.message = message;
+                console.log(item.message);
+            }
+        })
     }
 
 

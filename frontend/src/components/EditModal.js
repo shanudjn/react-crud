@@ -19,9 +19,11 @@ const EditModal = (props) => {
 
     const setUpdate = (e) => {
         console.log(message);
-        console.log(props.message);
+        // console.log(props.message);
 
         setMessage(e.target.value);
+        //console.log(message);
+
     }
 
 
@@ -61,7 +63,9 @@ const EditModal = (props) => {
                         Close
                     </Button>
                     <Button variant="primary" onClick={(e) => {
-                        props.handleSave(message, postId);
+                        props.handleSave(postId, message);
+                        handleClose();
+
                     }}>Save</Button>
                     {/* <Button variant="primary" type="submit" onClick={(e) => {
                         props.setUpdate(e.target.value, props.postId)

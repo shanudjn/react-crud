@@ -49,17 +49,17 @@ const PostMessages = () => {
 
     // }
     const handleSave = (postId, message) => {
-        let items = messages;
-        console.log(items);
         console.log(postId);
         console.log(message);
 
-        items.map((item) => {
-            if (item._id == postId) {
-                item.message = message;
-                console.log(item.message);
+        messages.map((singlemessage) => {
+            if (singlemessage._id == postId) {
+                singlemessage.message = message;
+                console.log(singlemessage.message);
             }
         })
+        console.log(messages);
+        loadMessages();
     }
 
 

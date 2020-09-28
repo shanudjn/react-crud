@@ -39,18 +39,27 @@ router.put("/:id", (req, res) => {
     message: req.body.message,
   });
 
-  postMessage.findOneAndUpdate(
-    req.params.id, { $set: newRecord }, (err, docs) => {
+  // PostMessage.findOneAndUpdate(
+  //   req.params.id, { $set: newRecord }, (err, docs) => {
+  //     if (!err) res.send(docs);
+  //     else console.log("error while retirving all records" + JSON.stringify(err, undefined, 2))
+  //   });
+
+  PostMessage.updateOne(
+    { "title": req.body.title },
+    { $set: { "message": req.body.message } },
+    (err, docs) => {
       if (!err) res.send(docs);
-      else console.log("error while retirving all records" + JSON.stringify(err, undefined, 2))
-    });
+      else console.log("Error while retrieving records" + JSON.stringify(err, undefined, 2))
+    }
+  )
 });
 
 router.delete('/:id', (req, docs) => {
   if (!ObjectId.isValid(req.params.id)) {
     return res.status(400).send('No record with given id' + req.params.id);
   }
-  postMessage.findByIdAndRemove(req.params.id, (err, docs) => {
+  PostMessage.findByIdAndRemove(req.params.id, (err, docs) => {
     if (!err) res.send(docs)
     else console.log('error while deleting a record: ' + JSON.stringify(err, undefined, 2))
   });

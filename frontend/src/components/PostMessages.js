@@ -48,18 +48,25 @@ const PostMessages = () => {
 
 
     // }
-    const handleSave = (postId, message) => {
+    const handleSave = async (postId, title, message) => {
         console.log(postId);
+        console.log(title);
         console.log(message);
-
-        messages.map((singlemessage) => {
-            if (singlemessage._id == postId) {
-                singlemessage.message = message;
-                console.log(singlemessage.message);
-            }
-        })
-        console.log(messages);
+        let tempData = {
+            title: title,
+            message: message
+        }
+        await axios.put('http://localhost:8000/postmessages/' + postId, tempData);
         loadMessages();
+
+        // messages.map((singlemessage) => {
+        //     if (singlemessage._id == postId) {
+        //         singlemessage.message = message;
+        //         console.log(singlemessage.message);
+        //     }
+        // })
+        // console.log(messages);
+        // setMessages(messages);
     }
 
 

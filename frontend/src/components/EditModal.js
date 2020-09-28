@@ -63,7 +63,7 @@ const EditModal = (props) => {
                         Close
                     </Button>
                     <Button variant="primary" onClick={(e) => {
-                        props.handleSave(postId, message);
+                        props.handleSave(postId, title, message);
                         handleClose();
 
                     }}>Save</Button>

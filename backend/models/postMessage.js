@@ -6,4 +6,6 @@ var PostMessage = mongoose.model("PostMessage", {
   message: String,
 }, 'postMessages');
 
+mongoose.set('useFindAndModify', false);
+
 module.exports = { PostMessage };
